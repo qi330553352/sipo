@@ -9,6 +9,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 public class SipoEurekaPlugin {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(SipoEurekaPlugin.class, args);
 	}
 
