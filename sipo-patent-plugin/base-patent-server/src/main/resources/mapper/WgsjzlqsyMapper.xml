@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sz.qzxkj.mapper.WgsjzlqsyMapper">
+    <resultMap id="BaseResultMap" type="com.sz.qzxkj.entity.Wgsjzlqsy">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="flh" jdbcType="VARCHAR" property="flh" />
+        <result column="sqggh" jdbcType="VARCHAR" property="sqggh" />
+        <result column="sqgghv" jdbcType="VARCHAR" property="sqgghv" />
+        <result column="sqh" jdbcType="VARCHAR" property="sqh" />
+        <result column="sqhv" jdbcType="VARCHAR" property="sqhv" />
+        <result column="sqrtime" jdbcType="VARCHAR" property="sqrtime" />
+        <result column="sqrtimev" jdbcType="VARCHAR" property="sqrtimev" />
+        <result column="sqggr" jdbcType="VARCHAR" property="sqggr" />
+        <result column="sqggrv" jdbcType="VARCHAR" property="sqggrv" />
+        <result column="yxqsj" jdbcType="VARCHAR" property="yxqsj" />
+        <result column="yxqsjv" jdbcType="VARCHAR" property="yxqsjv" />
+        <result column="faysqsj" jdbcType="VARCHAR" property="faysqsj" />
+        <result column="faysqsjv" jdbcType="VARCHAR" property="faysqsjv" />
+        <result column="zlqr" jdbcType="VARCHAR" property="zlqr" />
+        <result column="zlqrv" jdbcType="VARCHAR" property="zlqrv" />
+        <result column="dz" jdbcType="VARCHAR" property="dz" />
+        <result column="sjr" jdbcType="VARCHAR" property="sjr" />
+        <result column="sjrv" jdbcType="VARCHAR" property="sjrv" />
+        <result column="zldljg" jdbcType="VARCHAR" property="zldljg" />
+        <result column="zldljgv" jdbcType="VARCHAR" property="zldljgv" />
+        <result column="mc" jdbcType="VARCHAR" property="mc" />
+        <result column="mcv" jdbcType="VARCHAR" property="mcv" />
+    </resultMap>
+    <sql id="Base_Column_list">
+        id,flh,sqggh,sqgghv,sqh,sqhv,sqrtime,sqrtimev,sqggr,sqggrv,yxqsj,yxqsjv,faysqsj,faysqsjv,zlqr,zlqrv,dz,sjr,sjrv,zldljg,zldljgv,mc,mcv
+    </sql>
+    <sql id="Base_Column">
+        <trim suffix="" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="flh != null || flh != ''">flh,</if>
+            <if test="sqggh != null || sqggh != ''">sqggh,</if>
+            <if test="sqgghv != null || sqgghv != ''">sqgghv,</if>
+            <if test="sqh != null || sqh != ''">sqh,</if>
+            <if test="sqhv != null || sqhv != ''">sqhv,</if>
+            <if test="sqrtime != null || sqrtime != ''">sqrtime,</if>
+            <if test="sqrtimev != null || sqrtimev != ''">sqrtimev,</if>
+            <if test="sqggr != null || sqggr != ''">sqggr,</if>
+            <if test="sqggrv != null || sqggrv != ''">sqggrv,</if>
+            <if test="yxqsj != null || yxqsj != ''">yxqsj,</if>
+            <if test="yxqsjv != null || yxqsjv != ''">yxqsjv,</if>
+            <if test="faysqsj != null || faysqsj != ''">faysqsj,</if>
+            <if test="faysqsjv != null || faysqsjv != ''">faysqsjv,</if>
+            <if test="zlqr != null || zlqr != ''">zlqr,</if>
+            <if test="zlqrv != null || zlqrv != ''">zlqrv,</if>
+            <if test="dz != null || dz != ''">dz,</if>
+            <if test="sjr != null || sjr != ''">sjr,</if>
+            <if test="sjrv != null || sjrv != ''">sjrv,</if>
+            <if test="zldljg != null || zldljg != ''">zldljg,</if>
+            <if test="zldljgv != null || zldljgv != ''">zldljgv,</if>
+            <if test="mc != null || mc != ''">mc,</if>
+            <if test="mcv != null || mcv != ''">mcv,</if>
+        </trim>
+    </sql>
+    <sql id="Base_Value">
+        <trim suffix="" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="flh != null || flh != ''">#{flh},</if>
+            <if test="sqggh != null || sqggh != ''">#{sqggh},</if>
+            <if test="sqgghv != null || sqgghv != ''">#{sqgghv},</if>
+            <if test="sqh != null || sqh != ''">#{sqh},</if>
+            <if test="sqhv != null || sqhv != ''">#{sqhv},</if>
+            <if test="sqrtime != null || sqrtime != ''">#{sqrtime},</if>
+            <if test="sqrtimev != null || sqrtimev != ''">#{sqrtimev},</if>
+            <if test="sqggr != null || sqggr != ''">#{sqggr},</if>
+            <if test="sqggrv != null || sqggrv != ''">#{sqggrv},</if>
+            <if test="yxqsj != null || yxqsj != ''">#{yxqsj},</if>
+            <if test="yxqsjv != null || yxqsjv != ''">#{yxqsjv},</if>
+            <if test="faysqsj != null || faysqsj != ''">#{faysqsj},</if>
+            <if test="faysqsjv != null || faysqsjv != ''">#{faysqsjv},</if>
+            <if test="zlqr != null || zlqr != ''">#{zlqr},</if>
+            <if test="zlqrv != null || zlqrv != ''">#{zlqrv},</if>
+            <if test="dz != null || dz != ''">#{dz},</if>
+            <if test="sjr != null || sjr != ''">#{sjr},</if>
+            <if test="sjrv != null || sjrv != ''">#{sjrv},</if>
+            <if test="zldljg != null || zldljg != ''">#{zldljg},</if>
+            <if test="zldljgv != null || zldljgv != ''">#{zldljgv},</if>
+            <if test="mc != null || mc != ''">#{mc},</if>
+            <if test="mcv != null || mcv != ''">#{mcv},</if>
+        </trim>
+    </sql>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="com.sz.qzxkj.entity.Wgsjzlqsy">
+        INSERT INTO wgsjzlqsy (<include refid="Base_Column"/>) VALUES (<include refid="Base_Value"/>)
+    </insert>
+
+    <select id="findAll" resultType="com.sz.qzxkj.entity.Wgsjzlqsy">
+        SELECT DISTINCT a.`dz` FROM `wgsjzlqsy` a
+    </select>
+    <update id="updateById" parameterType="com.sz.qzxkj.entity.Wgsjzlqsy">
+        UPDATE wgsjzlqsy SET mc = #{mc},mcv = #{mcv} WHERE id = #{id}
+    </update>
+</mapper>

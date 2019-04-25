@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sz.qzxkj.mapper.PatentNoticeInfoMapper">
+    <resultMap id="BaseResultMap" type="com.sz.qzxkj.entity.PatentNoticeInfo">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="notice_tile" property="noticeTile" />
+        <result column="subheading" property="subheading" />
+        <result column="file_name" property="fileName" />
+        <result column="total" property="total" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="com.sz.qzxkj.entity.PatentLifeInfo">
+        INSERT INTO patent_notice_info (notice_tile,subheading,file_name,total,create_time) VALUES (#{noticeTile},#{subheading},#{fileName},#{total},#{createTime})
+    </insert>
+</mapper>

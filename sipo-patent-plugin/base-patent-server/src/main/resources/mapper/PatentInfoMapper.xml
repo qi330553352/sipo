@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sz.qzxkj.mapper.PatentInfoMapper">
+    <resultMap id="BaseResultMap" type="com.sz.qzxkj.entity.PatentInfo">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="patentno" jdbcType="VARCHAR" property="patentno" />
+        <result column="patent_name" jdbcType="VARCHAR" property="patentName" />
+        <result column="patent_type" jdbcType="VARCHAR" property="patentType" />
+    </resultMap>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="com.sz.qzxkj.entity.PatentInfo">
+        INSERT INTO patent_info (patentno,patent_name,patent_type) VALUES (#{patentno},#{patentName},#{patentType})
+    </insert>
+    <select id="findByPatentno" parameterType="java.lang.String" resultType="com.sz.qzxkj.entity.PatentInfo">
+        SELECT a.`id`,a.`patentno`,a.`patent_name` AS patentName,a.`patent_type` AS patentType
+        FROM patent_info a
+        WHERE a.`patentno` = #{patentno}
+    </select>
+    <select id="findAll" resultType="com.sz.qzxkj.entity.PatentInfo">
+        SELECT a.`id` FROM patent_info a ORDER BY a.`id` ASC
+    </select>
+    <select id="findById" parameterType="java.lang.Integer" resultType="com.sz.qzxkj.entity.PatentInfo">
+        SELECT a.`id`,a.`patentno`,a.`patent_name` AS patentName FROM patent_info a WHERE a.`id` = #{id}
+    </select>
+    <update id="updateById" parameterType="com.sz.qzxkj.entity.PatentInfo">
+        UPDATE patent_info SET apply_time = #{applyTime},notificationno = #{notificationno},classification=#{classification} WHERE patentno = #{patentno}
+    </update>
+</mapper>

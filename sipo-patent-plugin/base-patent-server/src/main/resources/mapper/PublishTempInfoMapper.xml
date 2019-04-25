@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sz.qzxkj.mapper.PublishTempInfoMapper">
+    <resultMap id="BaseResultMap" type="com.sz.qzxkj.entity.PublishTempInfo">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="patentno" jdbcType="VARCHAR" property="patentno" />
+        <result column="patent_name" jdbcType="VARCHAR" property="patentName" />
+        <result column="application_name" jdbcType="VARCHAR" property="applicationName" />
+    </resultMap>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="com.sz.qzxkj.entity.PublishTempInfo" >
+        INSERT INTO publish_temp_info (patentno,patent_name,application_name) VALUES (#{patentno},#{patentName},#{applicationName})
+    </insert>
+
+    <select id="findFullInfo" resultType="com.sz.qzxkj.entity.PublishTempInfo">
+        SELECT a.`id`,a.`patentno`,a.`application_name` AS applicationName
+        FROM `publish_temp_info` a ORDER BY a.`id` ASC
+    </select>
+</mapper>

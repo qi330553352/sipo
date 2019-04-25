@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sz.qzxkj.mapper.RelationPatentApplicationMapper">
+    <resultMap id="BaseResultMap" type="com.sz.qzxkj.entity.RelationPatentApplication">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="applicant_info_id" jdbcType="BIGINT" property="applicantInfoId" />
+        <result column="patent_info_id" jdbcType="BIGINT" property="patentInfoId" />
+        <result column="patentno" property="patentno" />
+    </resultMap>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="com.sz.qzxkj.entity.RelationPatentApplication">
+        INSERT INTO relation_patent_application (applicant_info_id,patent_info_id,patentno) VALUES (${applicantInfoId},${patentInfoId},#{patentno})
+    </insert>
+    <select id="findBean" resultType="com.sz.qzxkj.entity.RelationPatentApplication">
+        SELECT a.`id`,a.`applicant_info_id` AS applicantInfoId,a.`patent_info_id` AS patentInfoId
+        FROM relation_patent_application a
+        WHERE a.`applicant_info_id` = ${applicantInfoId} AND a.`patent_info_id` = ${patentInfoId}
+    </select>
+    <update id="update" parameterType="com.sz.qzxkj.entity.RelationPatentApplication">
+        UPDATE relation_patent_application SET patentno = #{patentno} WHERE id = #{id}
+    </update>
+    <select id="findAll" resultType="com.sz.qzxkj.entity.RelationPatentApplication">
+        SELECT id,patent_info_id AS patentInfoId FROM relation_patent_application WHERE patentno IS NULL
+    </select>
+</mapper>
