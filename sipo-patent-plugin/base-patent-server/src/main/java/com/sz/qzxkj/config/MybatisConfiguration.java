@@ -1,4 +1,4 @@
-package com.sz.qzxkj;
+package com.sz.qzxkj.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;

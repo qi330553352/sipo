@@ -1,6 +1,6 @@
 package com.sz.qzxkj.entity;
 
-import lombok.Data;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
  * 版 权 所 有: 版权所有(C)2019-2029
  * 公       司: 七智星科技有限公司
  */
-@Data
+@ToString
 public class RelationPatentApplication implements Serializable {
 
     private Integer id;
@@ -22,4 +22,35 @@ public class RelationPatentApplication implements Serializable {
     /* 申请号 */
     private String patentno;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getApplicantInfoId() {
+        return applicantInfoId;
+    }
+
+    public void setApplicantInfoId(Integer applicantInfoId) {
+        this.applicantInfoId = applicantInfoId;
+    }
+
+    public Integer getPatentInfoId() {
+        return patentInfoId;
+    }
+
+    public void setPatentInfoId(Integer patentInfoId) {
+        this.patentInfoId = patentInfoId;
+    }
+
+    public String getPatentno() {
+        return patentno;
+    }
+
+    public void setPatentno(String patentno) {
+        this.patentno = patentno;
+    }
 }

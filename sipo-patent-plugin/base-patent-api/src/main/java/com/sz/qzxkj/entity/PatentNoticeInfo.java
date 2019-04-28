@@ -1,6 +1,6 @@
 package com.sz.qzxkj.entity;
 
-import lombok.Data;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,7 +11,7 @@ import java.util.Date;
  * 作       者: qixin
  * 版 权 所 有: 版权所有(C)2019-2029
  */
-@Data
+@ToString
 public class PatentNoticeInfo implements Serializable{
 
     private Integer id;
@@ -24,4 +24,52 @@ public class PatentNoticeInfo implements Serializable{
     /* 总记录数 */
     private Integer total;
     private Date createTime;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNoticeTile() {
+        return noticeTile;
+    }
+
+    public void setNoticeTile(String noticeTile) {
+        this.noticeTile = noticeTile;
+    }
+
+    public String getSubheading() {
+        return subheading;
+    }
+
+    public void setSubheading(String subheading) {
+        this.subheading = subheading;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Optional;
+
 /**
  * 创 建 时 间: 2019/3/21
  * 版       本: V1.0
@@ -31,7 +33,7 @@ public interface PatentInfoApi {
     @GetMapping("/findById/{id}")
     @ApiImplicitParam(name = "id",required = true)
     @ApiOperation(value = "根据ID获得对象", notes = "对象查询", httpMethod = "GET", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    PatentInfo findById(@PathVariable("id")Integer id);
+    Optional<PatentInfo> findById(@PathVariable("id")Integer id);
 
     @GetMapping("/findByPatentno/{patentno}")
     @ApiImplicitParam(name = "patentno",dataType = "String",required = true)

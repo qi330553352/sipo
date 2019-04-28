@@ -1,4 +1,4 @@
-package com.sz.qzxkj;
+package com.sz.qzxkj.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

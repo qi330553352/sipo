@@ -1,6 +1,6 @@
 package com.sz.qzxkj.entity;
 
-import lombok.Data;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
  * 版 权 所 有: 版权所有(C)2019-2029
  * 公       司: 七智星科技有限公司
  */
-@Data
+@ToString
 public class PublishTempInfo implements Serializable {
 
     private Integer id;
@@ -21,4 +21,36 @@ public class PublishTempInfo implements Serializable {
     private String applicationName;
     /* 发明（设计）名称 */
     private String patentName;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPatentno() {
+        return patentno;
+    }
+
+    public void setPatentno(String patentno) {
+        this.patentno = patentno;
+    }
+
+    public String getApplicationName() {
+        return applicationName;
+    }
+
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
+    }
+
+    public String getPatentName() {
+        return patentName;
+    }
+
+    public void setPatentName(String patentName) {
+        this.patentName = patentName;
+    }
 }

@@ -5,6 +5,8 @@ import com.sz.qzxkj.feign.PatentInfoApi;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.log4j.Log4j2;
 
+import java.util.Optional;
+
 /**
  * 创 建 时 间: 2019/3/21
  * 版       本: V1.0
@@ -21,7 +23,7 @@ public class PatentInfoApiHystrix implements FallbackFactory<PatentInfoApi> {
         return new PatentInfoApi(){
 
             @Override
-            public PatentInfo findById(Integer id) {
+            public Optional<PatentInfo> findById(Integer id) {
                 return null;
             }
 

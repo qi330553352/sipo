@@ -1,8 +1,10 @@
 package com.sz.qzxkj.entity;
 
-import lombok.Data;
-import lombok.Getter;
+import lombok.ToString;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,10 +15,13 @@ import java.util.Date;
  * 版 权 所 有: 版权所有(C)2019-2029
  * 公       司: 七智星科技有限公司
  */
-@Data
+@Entity
+@ToString
 public class PatentInfo implements Serializable{
 
     /* id */
+    @Id
+    @GeneratedValue
     private Integer id;
     /* 申请号 */
     private String patentno;
@@ -39,11 +44,78 @@ public class PatentInfo implements Serializable{
         UNTREATED("未处理"),
         PUBLISH("发明公布");
 
-        @Getter
         private String messages;
 
         PatentTypeEnum(String messages) {
             this.messages=messages;
         }
+
+        public String getMessages() {
+            return messages;
+        }
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPatentno() {
+        return patentno;
+    }
+
+    public void setPatentno(String patentno) {
+        this.patentno = patentno;
+    }
+
+    public String getPatentName() {
+        return patentName;
+    }
+
+    public void setPatentName(String patentName) {
+        this.patentName = patentName;
+    }
+
+    public String getPatentType() {
+        return patentType;
+    }
+
+    public void setPatentType(String patentType) {
+        this.patentType = patentType;
+    }
+
+    public String getNotificationno() {
+        return notificationno;
+    }
+
+    public void setNotificationno(String notificationno) {
+        this.notificationno = notificationno;
+    }
+
+    public Date getNotificationTime() {
+        return notificationTime;
+    }
+
+    public void setNotificationTime(Date notificationTime) {
+        this.notificationTime = notificationTime;
+    }
+
+    public Date getApplyTime() {
+        return applyTime;
+    }
+
+    public void setApplyTime(Date applyTime) {
+        this.applyTime = applyTime;
+    }
+
+    public String getClassification() {
+        return classification;
+    }
+
+    public void setClassification(String classification) {
+        this.classification = classification;
     }
 }

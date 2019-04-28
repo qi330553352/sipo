@@ -1,6 +1,6 @@
 package com.sz.qzxkj.entity;
 
-import lombok.Data;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -10,10 +10,34 @@ import java.io.Serializable;
  * 作       者: qixin
  * 版 权 所 有: 版权所有(C)2019-2029
  */
-@Data
+@ToString
 public class AddressInfo implements Serializable {
 
     private Integer id;
     private String address;
     private String zipcode;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
 }
