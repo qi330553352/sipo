@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sz.qzxkj</groupId>
 	<artifactId>sipo-patent-plugin</artifactId>
-	<version>1.0</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>sipo-patent-plugin</name>
 	<description>专利信息</description>
@@ -13,7 +13,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.3.RELEASE</version>
-		<relativePath/>
 	</parent>
 
 	<modules>

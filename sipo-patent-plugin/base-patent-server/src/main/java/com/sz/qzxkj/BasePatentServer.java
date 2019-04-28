@@ -10,7 +10,6 @@ public class BasePatentServer {
 
 	public static void main(String[] args) {
 
-
 		SpringApplication.run(BasePatentServer.class, args);
 	}
 

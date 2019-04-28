@@ -1,5 +1,6 @@
 package com.sz.qzxkj.hystrix;
 
+import com.sz.qzxkj.entity.PatentInfo;
 import com.sz.qzxkj.feign.PatentInfoApi;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.log4j.Log4j2;
@@ -19,6 +20,15 @@ public class PatentInfoApiHystrix implements FallbackFactory<PatentInfoApi> {
 
         return new PatentInfoApi(){
 
+            @Override
+            public PatentInfo findById(Integer id) {
+                return null;
+            }
+
+            @Override
+            public PatentInfo findByPatentno(String patentno) {
+                return null;
+            }
         };
     }
 }

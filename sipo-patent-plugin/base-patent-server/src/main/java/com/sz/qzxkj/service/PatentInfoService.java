@@ -1,7 +1,10 @@
 package com.sz.qzxkj.service;
 
+import com.sz.qzxkj.entity.PatentInfo;
 import com.sz.qzxkj.feign.PatentInfoApi;
 import com.sz.qzxkj.mapper.PatentInfoMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class PatentInfoService implements PatentInfoApi {
 
+    private Logger log = LoggerFactory.getLogger(PatentInfoService.class);
+
     @Autowired
     private PatentInfoMapper mapper;
+
+    @Override
+    public PatentInfo findById(Integer id) {
+        log.info("参数 id:{}",id);
+        return mapper.findById(id);
+    }
+
+    @Override
+    public PatentInfo findByPatentno(String patentno) {
+        log.info("参数 patentno:{}",patentno);
+        return mapper.findByPatentno(patentno);
+    }
 }

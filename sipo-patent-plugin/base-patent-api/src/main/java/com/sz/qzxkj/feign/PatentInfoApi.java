@@ -1,8 +1,14 @@
 package com.sz.qzxkj.feign;
 
+import com.sz.qzxkj.entity.PatentInfo;
 import com.sz.qzxkj.hystrix.PatentInfoApiHystrix;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +26,17 @@ import javax.annotation.Resource;
 @RequestMapping("/PatentInfoApi")
 @FeignClient(name="sipo-patent-plugin",fallbackFactory=PatentInfoApiHystrix.class)
 public interface PatentInfoApi {
+
+
+    @GetMapping("/findById/{id}")
+    @ApiImplicitParam(name = "id",required = true)
+    @ApiOperation(value = "根据ID获得对象", notes = "对象查询", httpMethod = "GET", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    PatentInfo findById(@PathVariable("id")Integer id);
+
+    @GetMapping("/findByPatentno/{patentno}")
+    @ApiImplicitParam(name = "patentno",dataType = "String",required = true)
+    @ApiOperation(value = "根据patentno获得对象", notes = "对象查询", httpMethod = "GET", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    PatentInfo findByPatentno(@PathVariable("patentno")String patentno);
 
 
 }
