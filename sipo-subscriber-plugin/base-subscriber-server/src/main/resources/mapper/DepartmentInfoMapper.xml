@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sz.qzxkj.mapper.DepartmentInfoMapper">
+    <resultMap id="BaseResultMap" type="com.sz.qzxkj.entity.DepartmentInfo">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+        <result column="depart_name" jdbcType="VARCHAR" property="departName" />
+        <result column="idx" jdbcType="BIGINT" property="idx" />
+        <collection select="findChildrensById" column="id" ofType="com.sz.qzxkj.entity.DepartmentInfo" property="children"/>
+    </resultMap>
+
+    <select id="findById" resultMap="BaseResultMap">
+      SELECT a.`id`,a.`parent_id` AS parentId,a.`depart_name` AS departName,a.`idx`
+      FROM department_info a
+      WHERE a.`id` = ${id}
+    </select>
+    <select id="findChildrensById" parameterType="java.lang.Integer" resultType="com.sz.qzxkj.entity.DepartmentInfo">
+        SELECT a.`id`,a.`parent_id` AS parentId,a.`depart_name` AS departName,a.`idx`
+        FROM department_info a
+        WHERE a.`parent_id`= #{id}
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="com.sz.qzxkj.entity.DepartmentInfo">
+        INSERT INTO department_info (parent_id,depart_name,idx) VALUES (#{parentId},#{departName},#{idx})
+    </insert>
+</mapper>
