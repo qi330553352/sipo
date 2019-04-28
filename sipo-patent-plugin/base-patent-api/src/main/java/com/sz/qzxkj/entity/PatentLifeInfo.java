@@ -1,5 +1,6 @@
 package com.sz.qzxkj.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -19,5 +20,6 @@ public class PatentLifeInfo implements Serializable {
     private Integer patentInfoId;
     /* 备注 */
     private String remarks;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 }
