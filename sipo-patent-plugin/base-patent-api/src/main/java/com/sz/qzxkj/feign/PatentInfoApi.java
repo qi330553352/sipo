@@ -6,11 +6,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Optional;
@@ -40,5 +40,6 @@ public interface PatentInfoApi {
     @ApiOperation(value = "根据patentno获得对象", notes = "对象查询", httpMethod = "GET", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     PatentInfo findByPatentno(@PathVariable("patentno")String patentno);
 
-
+    @GetMapping("/findInfo/{page}/{pageSize}")
+    Page<PatentInfo> findInfo(@PathVariable("page") Integer page, @PathVariable("pageSize") Integer pageSize);
 }

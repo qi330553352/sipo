@@ -6,6 +6,8 @@ import feign.hystrix.FallbackFactory;
 import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 
 import java.util.Optional;
 
@@ -32,6 +34,12 @@ public class PatentInfoApiHystrix implements FallbackFactory<PatentInfoApi> {
 
             @Override
             public PatentInfo findByPatentno(String patentno) {
+                return null;
+            }
+
+            @Override
+            public Page<PatentInfo> findInfo(Integer page, Integer pageSize) {
+
                 return null;
             }
         };

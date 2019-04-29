@@ -2,6 +2,10 @@ package com.sz.qzxkj.entity;
 
 import lombok.ToString;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /** 申请（专利权）人 信息
@@ -11,9 +15,12 @@ import java.io.Serializable;
  * 版 权 所 有: 版权所有(C)2019-2029
  * 公       司: 七智星科技有限公司
  */
+@Entity
 @ToString
 public class ApplicantInfo implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     /* 申请（专利权）人 */
     private String applicationName;

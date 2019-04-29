@@ -1,13 +1,13 @@
 package com.sz.qzxkj.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /** 部门信息
@@ -16,9 +16,12 @@ import java.util.Set;
  * 作       者: qixin
  * 版 权 所 有: 版权所有(C)2019-2029
  */
+@Entity
 @ToString
 public class DepartmentInfo implements Serializable{
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     // 上级部门ID，一级部门:0
     private Integer parentId;

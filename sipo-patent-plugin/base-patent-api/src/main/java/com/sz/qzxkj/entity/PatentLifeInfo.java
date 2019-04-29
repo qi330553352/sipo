@@ -3,6 +3,10 @@ package com.sz.qzxkj.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.ToString;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,9 +17,12 @@ import java.util.Date;
  * 版 权 所 有: 版权所有(C)2019-2029
  * 公       司: 七智星科技有限公司
  */
+@Entity
 @ToString
 public class PatentLifeInfo implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     private Integer patentInfoId;
     /* 备注 */

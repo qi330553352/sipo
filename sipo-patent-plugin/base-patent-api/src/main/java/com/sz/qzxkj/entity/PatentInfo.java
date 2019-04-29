@@ -4,6 +4,7 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
@@ -21,7 +22,7 @@ public class PatentInfo implements Serializable{
 
     /* id */
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     /* 申请号 */
     private String patentno;

@@ -2,6 +2,10 @@ package com.sz.qzxkj.entity;
 
 import lombok.ToString;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,9 +15,12 @@ import java.util.Date;
  * 作       者: qixin
  * 版 权 所 有: 版权所有(C)2019-2029
  */
+@Entity
 @ToString
 public class PatentNoticeInfo implements Serializable{
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     /* 标题 */
     private String noticeTile;

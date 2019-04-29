@@ -7,6 +7,9 @@ import com.sz.qzxkj.repository.PatentInfoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -38,5 +41,12 @@ public class PatentInfoService implements PatentInfoApi {
     public PatentInfo findByPatentno(String patentno) {
         log.info("参数 patentno:{}",patentno);
         return mapper.findByPatentno(patentno);
+    }
+
+    @Override
+    public Page<PatentInfo> findInfo(Integer page,Integer pageSize) {
+        Sort sort = new Sort(Sort.Direction.ASC,"applyTime");
+        PageRequest pageable = PageRequest.of(page,pageSize,sort);
+        return repository.findAll(pageable);
     }
 }
