@@ -26,6 +26,17 @@
     <dependencies>
         <dependency>
             <groupId>com.sz.qzxkj</groupId>
+            <artifactId>sipo-common-plugin</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.sz.qzxkj</groupId>
             <artifactId>base-subscriber-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <exclusions>
@@ -131,7 +142,7 @@
             <artifactId>kaptcha</artifactId>
             <version>2.3.2</version>
         </dependency>
-
+       
     </dependencies>
 
     <dependencyManagement>
@@ -146,16 +157,48 @@
         </dependencies>
     </dependencyManagement>
 
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <environment>local</environment>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <environment>dev</environment>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <environment>prod</environment>
+            </properties>
+        </profile>
+        <profile>
+            <id>uat</id>
+            <properties>
+                <environment>uat</environment>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <classifier>exec</classifier>
-                </configuration>
             </plugin>
-
             <!-- 解决install时会执行Test方法的问题 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

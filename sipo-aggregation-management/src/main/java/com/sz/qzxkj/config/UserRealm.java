@@ -1,11 +1,8 @@
 package com.sz.qzxkj.config;
 
-import com.sz.qzxkj.entity.RoleInfo;
 import com.sz.qzxkj.entity.UserInfo;
 import com.sz.qzxkj.feign.UserInfoApi;
 import org.apache.shiro.authc.*;
-import org.apache.shiro.authc.credential.CredentialsMatcher;
-import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -14,7 +11,10 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 创 建 时 间: 2019/3/26

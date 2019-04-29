@@ -23,4 +23,10 @@ public class UserInfoService implements UserInfoApi {
 
         return mapper.findByPhoneno(phoneno);
     }
+
+    @Override
+    public int save(UserInfo bean) {
+
+        return mapper.save(bean);
+    }
 }

@@ -22,6 +22,12 @@ public class UserInfoApiHystrix implements FallbackFactory<UserInfoApi> {
 
                 return new UserInfo();
             }
+
+            @Override
+            public int save(UserInfo bean) {
+
+                return 0;
+            }
         };
     }
 }

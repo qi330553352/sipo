@@ -1,9 +1,7 @@
 package com.sz.qzxkj.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,6 +30,7 @@ public class DemoController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String getBookList(ModelMap map) {
+
         map.addAttribute("bookList", Collections.emptyList());
         return BOOK_LIST_PATH_NAME;
     }
@@ -64,7 +63,6 @@ public class DemoController {
      */
     @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
     public String getUser(@PathVariable Long id, ModelMap map) {
-
         map.addAttribute("action", "update");
         return BOOK_FORM_PATH_NAME;
     }

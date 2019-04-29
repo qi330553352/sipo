@@ -7,8 +7,7 @@
 			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
 		</encoder>
 	</appender>
-	<logger name="com.sz.qzxkj" level="DEBUG" />
-	<logger name="org.springframework" level="DEBUG" />
+	<logger name="com.sz.qzxkj" level="ALL" />
 	<!--myibatis log configure -->
 	<logger name="com.apache.ibatis" level="TRACE" />
 	<logger name="java.sql.Connection" level="DEBUG" />
@@ -18,7 +17,7 @@
 	<springProfile name="local">
 		<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
 		<property name="LOG_HOME" value="D:\\logs\\local" />
-		<property name="APP_NAME" value="sipo-subscriber-plugin" />
+		<property name="APP_NAME" value="sipo-aggregation-management" />
 		<!-- 按照每天生成日志文件 -->
 		<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 			<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -41,13 +40,13 @@
 			<appender-ref ref="FILE" />
 		</root>
 		<!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
-		<logger name="org.springframework" level="WARN" />
+		<logger name="org.springframework" level="INFO" />
 		<logger name="org.apache" level="WARN" />
 	</springProfile>
 	<springProfile name="dev">
 		<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
 		<property name="LOG_HOME" value="D:\\logs\\dev" />
-		<property name="APP_NAME" value="sipo-patent-plugin" />
+		<property name="APP_NAME" value="sipo-aggregation-management" />
 		<!-- 按照每天生成日志文件 -->
 		<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 			<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -73,7 +72,7 @@
 	<springProfile name="prod">
 		<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
 		<property name="LOG_HOME" value="D:\\logs\\prod" />
-		<property name="APP_NAME" value="sipo-patent-plugin" />
+		<property name="APP_NAME" value="sipo-aggregation-management" />
 		<!-- 按照每天生成日志文件 -->
 		<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 			<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -98,7 +97,7 @@
 	<springProfile name="uat">
 		<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
 		<property name="LOG_HOME" value="D:\\logs\\uat" />
-		<property name="APP_NAME" value="sipo-patent-plugin" />
+		<property name="APP_NAME" value="sipo-aggregation-management" />
 		<!-- 按照每天生成日志文件 -->
 		<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 			<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
