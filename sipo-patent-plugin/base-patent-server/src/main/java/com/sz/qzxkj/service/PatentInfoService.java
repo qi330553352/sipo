@@ -7,6 +7,7 @@ import com.sz.qzxkj.repository.PatentInfoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -24,14 +25,15 @@ import java.util.Optional;
 @Service
 public class PatentInfoService implements PatentInfoApi {
 
-    private Logger log = LoggerFactory.getLogger(PatentInfoService.class);
 
     @Autowired
     private PatentInfoMapper mapper;
     @Autowired
     private PatentInfoRepository repository;
+    private Logger log = LoggerFactory.getLogger(PatentInfoService.class);
 
     @Override
+    @Cacheable(value = "findById")
     public Optional<PatentInfo> findById(Integer id) {
         log.info("参数 id:{}",id);
         return repository.findById(id);
