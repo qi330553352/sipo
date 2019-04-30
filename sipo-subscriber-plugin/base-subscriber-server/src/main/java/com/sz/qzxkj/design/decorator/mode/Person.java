@@ -12,8 +12,8 @@ public interface Person {
      * 计算累计消费
      * @return
      */
-    public Double cost();
-    public void show();
+    Double cost();
+    void show();
 
 
 }
