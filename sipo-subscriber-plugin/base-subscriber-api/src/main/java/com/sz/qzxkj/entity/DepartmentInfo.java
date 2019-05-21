@@ -25,7 +25,7 @@ public class DepartmentInfo implements Serializable{
     private Integer id;
     // 上级部门ID，一级部门:0
     private Integer parentId;
-    private Set<DepartmentInfo> children = new HashSet<>();
+    //private Set<DepartmentInfo> children = new HashSet<>();
 
     // 部门名称
     private String departName;
@@ -48,13 +48,13 @@ public class DepartmentInfo implements Serializable{
         this.parentId = parentId;
     }
 
-    public Set<DepartmentInfo> getChildren() {
-        return children;
-    }
-
-    public void setChildren(Set<DepartmentInfo> children) {
-        this.children = children;
-    }
+//    public Set<DepartmentInfo> getChildren() {
+//        return children;
+//    }
+//
+//    public void setChildren(Set<DepartmentInfo> children) {
+//        this.children = children;
+//    }
 
     public String getDepartName() {
         return departName;

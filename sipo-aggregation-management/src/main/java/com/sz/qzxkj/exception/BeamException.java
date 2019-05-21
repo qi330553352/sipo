@@ -12,7 +12,6 @@ import com.sz.qzxkj.enumeration.RetEnum;
 public class BeamException extends RuntimeException {
 
     private Integer code;
-
     private String message;
 
     public BeamException(RetEnum retEnum) {
