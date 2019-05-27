@@ -15,7 +15,7 @@ public class BaseRabbitmqServerTests {
 	private Sender sender;
 	@Test
 	public void contextLoads() {
-		sender.send();
+		sender.sendString();
 
 	}
 
