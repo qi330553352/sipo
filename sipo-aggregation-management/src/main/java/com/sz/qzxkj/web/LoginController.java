@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import com.google.code.kaptcha.Constants;
+//import com.google.code.kaptcha.Constants;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,10 +45,10 @@ public class LoginController {
     public String login(@ModelAttribute UserInfo loginForm,HttpServletRequest request){
         log.info(""+loginForm);
         if(new KaptchaUtil().isKaptchaOnOff()){
-            String kaptcha = ShiroUtils.getKaptcha(Constants.KAPTCHA_SESSION_KEY);
-            if(!loginForm.getCaptcha().equalsIgnoreCase(kaptcha)){
-                return "layouts/login";
-            }
+//            String kaptcha = ShiroUtils.getKaptcha(Constants.KAPTCHA_SESSION_KEY);
+//            if(!loginForm.getCaptcha().equalsIgnoreCase(kaptcha)){
+//                return "layouts/login";
+//            }
         }
         Subject subject= SecurityUtils.getSubject();
 
